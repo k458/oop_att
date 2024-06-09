@@ -11,29 +11,37 @@ public class Inputter {
     private boolean isLog = false;
     private OperationType operation;
 
-    public void getInput(InputType inputType, Scanner scanner) {
-        if (inputType == InputType.OPERATION) System.out.println("Input operator:");
-        else if (inputType == InputType.FLOAT) System.out.println("Input number:");
+    public void parseInput(InputType inputType, Scanner scanner) {
+        if (inputType == InputType.OPERATION)
+            System.out.println("Input operator:");
+        else if (inputType == InputType.FLOAT)
+            System.out.println("Input number:");
         while (true) {
-            if (scanner.hasNextLine()) input = scanner.nextLine();
-            else continue;
+            if (scanner.hasNextLine())
+                input = scanner.nextLine();
+            else
+                continue;
             isCancel = false;
             isLog = false;
             if (input.length() == 0) {
                 System.out.println("ERROR: input is too short");
                 continue;
             }
-            if (input.length() == 1){
-                if (input.charAt(0) == 'c' || input.charAt(0) == 'C'){
+            if (input.length() == 1) {
+                if (input.charAt(0) == 'c' || input.charAt(0) == 'C') {
                     isCancel = true;
                     break;
                 }
-                if (input.charAt(0) == 'l' || input.charAt(0) == 'L'){
+                if (input.charAt(0) == 'l' || input.charAt(0) == 'L') {
                     isLog = true;
                     break;
                 }
             }
-            if (inputType == InputType.OPERATION){
+            if (inputType == InputType.OPERATION) {
+                if (input.length() > 1) {
+                    System.out.println("ERROR: not an operator!");
+                    continue;
+                }
                 switch (input.charAt(0)) {
                     case '+':
                         operation = OperationType.PLUS;
@@ -48,12 +56,11 @@ public class Inputter {
                         operation = OperationType.DIV;
                         break;
                     default:
-                        System.out.print("ERROR: not an operator!");
+                        System.out.println("ERROR: not an operator!");
                         continue;
                 }
                 break;
-            }
-            else if (inputType == InputType.FLOAT){
+            } else if (inputType == InputType.FLOAT) {
                 try {
                     inputFloat = Float.valueOf(input);
                 } catch (Exception e) {
@@ -78,7 +85,7 @@ public class Inputter {
         return inputFloat;
     }
 
-    public OperationType getOperation(){
+    public OperationType getOperation() {
         return operation;
     }
 }

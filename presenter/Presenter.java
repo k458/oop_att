@@ -14,7 +14,7 @@ public class Presenter {
         Scanner scanner = new Scanner(System.in);
         while (true){
             float argument1;
-            inputter.getInput(InputType.FLOAT, scanner);
+            inputter.parseInput(InputType.FLOAT, scanner);
             if (inputter.isCancel()) continue;
             if (inputter.isLog()) {
                 printer.print(logger.getLog());
@@ -23,7 +23,7 @@ public class Presenter {
             argument1 = inputter.getFloat();
 
             OperationType operation;
-            inputter.getInput(InputType.OPERATION, scanner);
+            inputter.parseInput(InputType.OPERATION, scanner);
             if (inputter.isCancel()) continue;
             if (inputter.isLog()) {
                 printer.print(logger.getLog());
@@ -32,7 +32,7 @@ public class Presenter {
             operation = inputter.getOperation();
 
             float argument2;
-            inputter.getInput(InputType.FLOAT, scanner);
+            inputter.parseInput(InputType.FLOAT, scanner);
             if (inputter.isCancel()) continue;
             if (inputter.isLog()) {
                 printer.print(logger.getLog());

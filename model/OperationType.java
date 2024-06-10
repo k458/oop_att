@@ -2,7 +2,7 @@ package model;
 
 public enum OperationType {
     PLUS,
-    MIN,
+    MINUS,
     MULT,
     DIV
   }

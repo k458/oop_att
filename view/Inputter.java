@@ -47,7 +47,7 @@ public class Inputter {
                         operation = OperationType.PLUS;
                         break;
                     case '-':
-                        operation = OperationType.MIN;
+                        operation = OperationType.MINUS;
                         break;
                     case '*':
                         operation = OperationType.MULT;

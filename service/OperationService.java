@@ -7,7 +7,7 @@ public class OperationService {
         switch (operation) {
             case PLUS:
                 return "+";
-            case MIN:
+            case MINUS:
                 return "-";
             case MULT:
                 return "*";

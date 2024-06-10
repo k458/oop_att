@@ -2,7 +2,8 @@ package presenter;
 import java.util.Scanner;
 
 import model.*;
-import service.CalculateService;
+import model.calculator.CalculatorBase;
+import model.calculator.SimpleCalculator;
 import view.*;
 
 public class Presenter {
@@ -12,6 +13,7 @@ public class Presenter {
         Logger logger = new Logger();
         Printer printer = new Printer();
         Scanner scanner = new Scanner(System.in);
+        CalculatorBase calculator = new SimpleCalculator();
         while (true){
             float argument1;
             inputter.parseInput(InputType.FLOAT, scanner);
@@ -40,7 +42,7 @@ public class Presenter {
             }
             argument2 = inputter.getFloat();
 
-            float result = CalculateService.calculate(argument1, argument2, operation);
+            float result = calculator.calculate(argument1, argument2, operation);
             printer.printOperation(argument1, argument2, result, operation);
             logger.logOperation(argument1, argument2, result, operation);
         }

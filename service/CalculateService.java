@@ -7,7 +7,7 @@ public class CalculateService {
         switch (operation) {
             case PLUS:
                 return argument1 + argument2;
-            case MIN:
+            case MINUS:
                 return argument1 - argument2;
             case MULT:
                 return argument1 * argument2;
